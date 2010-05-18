@@ -5,8 +5,8 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "tinnef"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = %Q{Ruby wrapper for unpacking 'winmail.dat' files}
+    gem.description = %Q{Handling e-mail attachments with MIME type 'application/ms-tnef' }
     gem.email = "ledermann@gmx.de"
     gem.homepage = "http://github.com/ledermann/tinnef"
     gem.authors = ["Georg Ledermann"]

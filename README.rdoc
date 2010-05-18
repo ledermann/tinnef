@@ -1,6 +1,7 @@
 = tinnef
 
-Description goes here.
+This gem handles e-mail attachments packaged in the Microsoft "application/ms-tnef" MIME type. 
+It's a Ruby wrapper for the 'tnef' tool from http://tnef.sourceforge.net/
 
 == Note on Patches/Pull Requests
  
@@ -13,5 +14,9 @@ Description goes here.
 * Send me a pull request. Bonus points for topic branches.
 
 == Copyright
+
+This code is based on the work by Peter Collingbourne, published as part of the project "whatdotheyknow":
+http://github.com/mysociety/whatdotheyknow/blob/master/lib/tnef.rb
+Thank you for sharing!
 
 Copyright (c) 2010 Georg Ledermann. See LICENSE for details.
