@@ -1,7 +1,9 @@
 = tinnef
 
-This gem handles e-mail attachments packaged in the Microsoft "application/ms-tnef" MIME type. 
-It's a Ruby wrapper for the 'tnef' tool from http://tnef.sourceforge.net/
+This gem handles e-mail attachments packaged in the Microsoft "application/ms-tnef" MIME type. It's a Ruby wrapper for the 'tnef' converter from http://tnef.sourceforge.net/
+
+From Wikipedia: "Transport Neutral Encapsulation Format or TNEF is, despite the name, a proprietary E-mail attachment format used by Microsoft Outlook and Microsoft Exchange Server. An attached file with TNEF encoding is most often named winmail.dat or win.dat, and has a MIME type of Application/MS-TNEF."
+http://en.wikipedia.org/wiki/Transport_Neutral_Encapsulation_Format
 
 
 == Requirements
@@ -16,11 +18,11 @@ The binary of tnef in a recent version is required, 1.4.6 is ok. Check if this t
 
     tnef --version
     
-Doesn't exist? You can install it:
+It doesn't exist? You can install it:
 
 ==== Mac OS X
 
-Using MacPorts, just do 
+Using MacPorts, just do:
 
     sudo ports install tnef
     
@@ -30,7 +32,7 @@ There are chances that this will work:
 
     apt-get install tnef
     
-Beware: On older Linux distro, you will get a too old version of tnef, which does not work (e.g. 1.4.3 in Ubuntu hardy), so have to compile it by yourself.
+Beware: On older Linux distribution, you will get a too old version of tnef, which does not work (e.g. 1.4.3 in Ubuntu hardy), so have to compile it by yourself. It's easy:
 
   wget http://sourceforge.net/projects/tnef/files/tnef/v1.4.7/tnef-1.4.7.tar.gz/download
   tar -xzvf tnef-1.4.7.tar.gz
@@ -43,6 +45,43 @@ Beware: On older Linux distro, you will get a too old version of tnef, which doe
 ==== Windows
 
 What? I don't think this gem will work on Windows.
+
+
+== Installation
+
+In Rails, add this to your environment.rb:
+
+    config.gem 'tinnef'
+    
+Then run
+
+    rake gems:install
+
+or
+
+    gem install tinnef
+
+== Usage
+
+The gem defines the class TNEF with just one class method to converta given winmail.dat file. Use it like in the following example:
+
+    require 'rubygems'
+    require 'tinnef'
+
+    content = File.new('winmail.dat').read
+    TNEF.convert(content, :command => '/opt/local/bin/tnef') do |temp_file|
+      unpacked_content = temp_file.read
+      unpacked_filename = File.basename(temp_file.path)
+  
+      File.open("/some/path/#{unpacked_filename}", 'w') do |new_file| 
+        new_file.write(unpacked_content)
+      end
+    end
+
+
+== About the naming of this gem
+
+"Tinnef" is a german slang word for "rubbish" or "trash". TNEF => TiNnEF => Tinnef - you know?
 
 
 == Note on Patches/Pull Requests
