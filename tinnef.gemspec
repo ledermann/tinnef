@@ -23,8 +23,8 @@ Gem::Specification.new do |s|
      "README.rdoc",
      "Rakefile",
      "VERSION",
-     "lib/dir.rb",
      "lib/tinnef.rb",
+     "lib/tinnef/dir_patch.rb",
      "test/helper.rb",
      "test/test_tinnef.rb",
      "tinnef.gemspec"

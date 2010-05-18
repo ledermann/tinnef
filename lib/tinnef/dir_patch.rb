@@ -1,3 +1,6 @@
+require 'dir'
+require 'tmpdir'
+
 #
 # Dir.mktmpdir is missing in Ruby 1.8.6 patchlevel 111, so monkeypatch it from
 # http://www.ruby-doc.org/core-1.9/classes/Dir.src/M002362.html

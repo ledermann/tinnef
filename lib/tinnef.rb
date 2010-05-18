@@ -1,3 +1,5 @@
+require 'tinnef/dir_patch'
+
 class TNEF
   def self.convert(content, options={}, &block)
     command = options[:command] || 'tnef'
