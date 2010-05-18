@@ -1,9 +1,9 @@
 = tinnef
 
-This gem handles e-mail attachments packaged in the Microsoft "application/ms-tnef" MIME type. It's a Ruby wrapper for the 'tnef' converter from http://tnef.sourceforge.net/
+This gem handles e-mail attachments packaged in the Microsoft "application/ms-tnef" MIME type. It's a Ruby wrapper for the {tnef converter}[http://tnef.sourceforge.net]
 
-From Wikipedia: "Transport Neutral Encapsulation Format or TNEF is, despite the name, a proprietary E-mail attachment format used by Microsoft Outlook and Microsoft Exchange Server. An attached file with TNEF encoding is most often named winmail.dat or win.dat, and has a MIME type of Application/MS-TNEF."
-http://en.wikipedia.org/wiki/Transport_Neutral_Encapsulation_Format
+From {Wikipedia}[http://en.wikipedia.org/wiki/Transport_Neutral_Encapsulation_Format]: "Transport Neutral Encapsulation Format or TNEF is, despite the name, a proprietary E-mail attachment format used by Microsoft Outlook and Microsoft Exchange Server. An attached file with TNEF encoding is most often named winmail.dat or win.dat, and has a MIME type of Application/MS-TNEF."
+
 
 
 == Requirements
@@ -14,9 +14,9 @@ Ruby 1.8.6 or 1.8.7 is required. It's not tested with 1.9.
 
 === tnef
 
-The binary of tnef in a recent version is required, 1.4.6 is ok. Check if this tool already exists on your machine:
+The binary of tnef is required in a current version, 1.4.6 is ok. Check if this tool already exists on your machine:
 
-    tnef --version
+  tnef --version
     
 It doesn't exist? You can install it:
 
@@ -24,15 +24,15 @@ It doesn't exist? You can install it:
 
 Using MacPorts, just do:
 
-    sudo ports install tnef
+  sudo ports install tnef
     
 ==== Linux
 
 There are chances that this will work:
 
-    apt-get install tnef
+  apt-get install tnef
     
-Beware: On older Linux distribution, you will get a too old version of tnef, which does not work (e.g. 1.4.3 in Ubuntu hardy), so have to compile it by yourself. It's easy:
+Beware: On older Linux distribution, you will get a too old version of tnef, which does not work (e.g. 1.4.3 in Ubuntu Hardy), so you have to compile it by yourself. It's easy:
 
   wget http://sourceforge.net/projects/tnef/files/tnef/v1.4.7/tnef-1.4.7.tar.gz/download
   tar -xzvf tnef-1.4.7.tar.gz
@@ -51,32 +51,32 @@ What? I don't think this gem will work on Windows.
 
 In Rails, add this to your environment.rb:
 
-    config.gem 'tinnef'
+  config.gem 'tinnef'
     
 Then run
 
-    rake gems:install
+  rake gems:install
 
 or
 
-    gem install tinnef
+  gem install tinnef
 
 == Usage
 
-The gem defines the class TNEF with just one class method to converta given winmail.dat file. Use it like in the following example:
+The gem defines the class TNEF with just one class method to convert a given winmail.dat file. Use it with a block like in the following example:
 
-    require 'rubygems'
-    require 'tinnef'
+  require 'rubygems'
+  require 'tinnef'
 
-    content = File.new('winmail.dat').read
-    TNEF.convert(content, :command => '/opt/local/bin/tnef') do |temp_file|
-      unpacked_content = temp_file.read
-      unpacked_filename = File.basename(temp_file.path)
-  
-      File.open("/some/path/#{unpacked_filename}", 'w') do |new_file| 
-        new_file.write(unpacked_content)
-      end
+  content = File.new('winmail.dat').read
+  TNEF.convert(content, :command => '/opt/local/bin/tnef') do |temp_file|
+    unpacked_content = temp_file.read
+    unpacked_filename = File.basename(temp_file.path)
+
+    File.open("/some/path/#{unpacked_filename}", 'w') do |new_file| 
+      new_file.write(unpacked_content)
     end
+  end
 
 
 == About the naming of this gem
@@ -101,8 +101,7 @@ The gem defines the class TNEF with just one class method to converta given winm
 
 == Copyright
 
-This code is based on the work by Peter Collingbourne, published as part of the project "whatdotheyknow":
-http://github.com/mysociety/whatdotheyknow/blob/master/lib/tnef.rb
+This code is based on the work by Peter Collingbourne, published as part of the project whatdotheyknow[http://github.com/mysociety/whatdotheyknow/blob/master/lib/tnef.rb]
 Thank you for sharing!
 
 Copyright (c) 2010 Georg Ledermann. See LICENSE for details.
