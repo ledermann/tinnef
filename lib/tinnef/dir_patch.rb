@@ -1,4 +1,3 @@
-require 'dir'
 require 'tmpdir'
 
 #
