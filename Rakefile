@@ -5,9 +5,9 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "tinnef"
-    gem.summary = %Q{Ruby wrapper for unpacking 'winmail.dat' files}
-    gem.description = %Q{Handling e-mail attachments with MIME type 'application/ms-tnef' }
-    gem.email = "ledermann@gmx.de"
+    gem.summary = %Q{Ruby wrapper for tnef, a tool for unpacking 'winmail.dat' files}
+    gem.description = %Q{Handling e-mail attachments coming with MIME type 'application/ms-tnef' }
+    gem.email = "ledermann@dipl-wirt-inf.de"
     gem.homepage = "http://github.com/ledermann/tinnef"
     gem.authors = ["Georg Ledermann"]
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings

@@ -3,6 +3,48 @@
 This gem handles e-mail attachments packaged in the Microsoft "application/ms-tnef" MIME type. 
 It's a Ruby wrapper for the 'tnef' tool from http://tnef.sourceforge.net/
 
+
+== Requirements
+
+=== Ruby
+
+Ruby 1.8.6 or 1.8.7 is required. It's not tested with 1.9.
+
+=== tnef
+
+The binary of tnef in a recent version is required, 1.4.6 is ok. Check if this tool already exists on your machine:
+
+    tnef --version
+    
+Doesn't exist? You can install it:
+
+==== Mac OS X
+
+Using MacPorts, just do 
+
+    sudo ports install tnef
+    
+==== Linux
+
+There are chances that this will work:
+
+    apt-get install tnef
+    
+Beware: On older Linux distro, you will get a too old version of tnef, which does not work (e.g. 1.4.3 in Ubuntu hardy), so have to compile it by yourself.
+
+  wget http://sourceforge.net/projects/tnef/files/tnef/v1.4.7/tnef-1.4.7.tar.gz/download
+  tar -xzvf tnef-1.4.7.tar.gz
+  cd tnef-1.4.7
+  ./configure
+  make
+  make check
+  make install
+
+==== Windows
+
+What? I don't think this gem will work on Windows.
+
+
 == Note on Patches/Pull Requests
  
 * Fork the project.
