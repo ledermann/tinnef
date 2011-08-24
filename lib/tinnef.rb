@@ -4,7 +4,7 @@ class TNEF
   # = convert
   #
   # Extract the content of a winmail.dat file and 
-  # call the given block for every single file in it
+  # executes the given block for every single file in it
   # 
   # Parameters:
   #   content => Content of the winmail.dat file
@@ -24,25 +24,34 @@ class TNEF
   #     end
   #   end
   def self.convert(content, options={}, &block)
-    command = options[:command] || 'tnef'
-    
     Dir.mktmpdir do |dir|
-      IO.popen("#{command} -K -C #{dir}", "w") do |f|
-        f.write(content)
-        f.close
-        if $?.signaled?
-          raise IOError, "tnef exited with signal #{$?.termsig}"
-        end
-        if $?.exited? && $?.exitstatus != 0
-          raise IOError, "tnef exited with status #{$?.exitstatus}"
-        end
-      end
-      Dir.new(dir).sort.each do |file_name| # sort for deterministic behaviour
-        if file_name != "." && file_name != ".."
-          file = File.open("#{dir}/#{file_name}", "r")
-          block.call(file)
-        end
+      files = extract(content, options.merge(:dir => dir))
+      files.each do |file| 
+        yield(file)
       end
     end
+  end
+  
+  def self.extract(content, options={})
+    command = options[:command] || 'tnef'
+    dir = options[:dir]
+    
+    IO.popen("#{command} -K -C #{dir}", "w") do |f|
+      f.write(content)
+      f.close
+      if $?.signaled?
+        raise IOError, "tnef exited with signal #{$?.termsig}"
+      end
+      if $?.exited? && $?.exitstatus != 0
+        raise IOError, "tnef exited with status #{$?.exitstatus}"
+      end
+    end
+    
+    Dir.new(dir).
+        sort.
+        delete_if { |file_name| File.directory?(file_name) }.
+        map do |file_name|
+          File.open("#{dir}/#{file_name}", "r")
+        end
   end
 end

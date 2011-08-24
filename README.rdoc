@@ -77,12 +77,6 @@ The gem defines the class TNEF with just one class method to convert a given win
 
 "Tinnef" is a german slang word for "rubbish" or "trash". TNEF => TiNnEF => Tinnef - you know?
 
-
-== TODO
-
-* Add some tests
-
-
 == Note on Patches/Pull Requests
  
 * Fork the project.
