@@ -4,7 +4,7 @@ class TestDir < Test::Unit::TestCase
   def test_mktmpdir_path
     dir = Dir.mktmpdir
     
-    assert_match /^\/var\/folders/, dir
+    assert File.directory?(dir)
     assert_equal true, File.directory?(dir)
   end
   
@@ -14,7 +14,7 @@ class TestDir < Test::Unit::TestCase
       directory = dir
     end
 
-    assert_match /^\/var\/folders/, directory
+    assert !File.directory?(directory)
     assert_equal false, File.directory?(directory)
   end
 end
