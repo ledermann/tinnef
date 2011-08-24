@@ -22,6 +22,10 @@ It doesn't exist? You can install it:
 
 ==== Mac OS X
 
+Using Homebrew, just do:
+
+  brew install tnef
+
 Using MacPorts, just do:
 
   sudo ports install tnef
@@ -48,16 +52,6 @@ What? I don't think this gem will work on Windows.
 
 
 == Installation
-
-In Rails, add this to your environment.rb:
-
-  config.gem 'tinnef'
-    
-Then run
-
-  rake gems:install
-
-or
 
   gem install tinnef
 
@@ -104,4 +98,4 @@ The gem defines the class TNEF with just one class method to convert a given win
 This code is based on the work by Peter Collingbourne, published as part of the project whatdotheyknow[http://github.com/mysociety/whatdotheyknow/blob/master/lib/tnef.rb]
 Thank you for sharing!
 
-Copyright (c) 2010 Georg Ledermann. See LICENSE for details.
+Copyright (c) 2010-2011 Georg Ledermann. See MIT-LICENSE for details.
