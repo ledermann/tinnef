@@ -25,9 +25,11 @@ class TNEF
   #   end
   def self.convert(content, options={}, &block)
     Dir.mktmpdir do |dir|
-      files = extract(content, options.merge(:dir => dir))
-      files.each do |file| 
-        yield(file)
+      file_names = extract(content, options.merge(:dir => dir))
+      file_names.each do |file_name|
+        File.open("#{dir}/#{file_name}", "r") do |file|
+          yield(file)
+        end
       end
     end
   end
@@ -47,11 +49,6 @@ class TNEF
       end
     end
     
-    Dir.new(dir).
-        sort.
-        delete_if { |file_name| File.directory?(file_name) }.
-        map do |file_name|
-          File.open("#{dir}/#{file_name}", "r")
-        end
+    Dir.new(dir).sort.delete_if { |file_name| File.directory?(file_name) }
   end
 end
