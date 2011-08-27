@@ -1,6 +1,6 @@
 # tinnef
 
-[![Build Status](http://travis-ci.org/ledermann/tinnef.png)](http://travis-ci.org/ledermann/tinnef)
+[![Build Status](https://secure.travis-ci.org/ledermann/tinnef.png)](http://travis-ci.org/ledermann/tinnef)
 
 This gem handles e-mail attachments packaged in the Microsoft "application/ms-tnef" MIME type. It's a Ruby wrapper for the [tnef converter](http://tnef.sourceforge.net).
 
