@@ -38,7 +38,7 @@ class TNEF
     command = options[:command] || 'tnef'
     dir = options[:dir]
     
-    IO.popen("#{command} -K -C #{dir}", "w") do |f|
+    IO.popen("#{command} -K -C #{dir}", "wb") do |f|
       f.write(content)
       f.close
       if $?.signaled?
