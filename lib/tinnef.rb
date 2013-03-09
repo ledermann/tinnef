@@ -1,4 +1,4 @@
-require 'tinnef/dir_patch'
+require 'tmpdir'
 
 class TNEF
   # = convert

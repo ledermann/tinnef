@@ -11,7 +11,7 @@ From [Wikipedia](http://en.wikipedia.org/wiki/Transport_Neutral_Encapsulation_Fo
 
 ### Ruby
 
-Tested with Ruby 1.8.6, 1.8.7 and 1.9.2.
+Tested with Ruby 1.8.7, 1.9.3 and 2.0.0
 
 ### tnef
 
