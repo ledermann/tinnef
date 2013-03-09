@@ -18,7 +18,7 @@ Tested with Ruby 1.8.6, 1.8.7 and 1.9.2.
 The binary of tnef is required in a current version, 1.4.6 is ok. Check if this tool already exists on your machine:
 
     tnef --version
-    
+
 It doesn't exist? You can install it:
 
 #### Mac OS X
@@ -30,13 +30,13 @@ Using Homebrew, just do:
 Using MacPorts, just do:
 
     sudo ports install tnef
-    
+
 #### Linux
 
 There are chances that this will work:
 
     apt-get install tnef
-    
+
 Beware: On older Linux distribution, you will get a too old version of tnef, which does not work (e.g. 1.4.3 in Ubuntu Hardy), so you have to compile it by yourself. It's easy:
 
     wget http://sourceforge.net/projects/tnef/files/tnef/v1.4.7/tnef-1.4.7.tar.gz/download
@@ -68,7 +68,7 @@ The gem defines the class TNEF with a class method to convert a given winmail.da
       unpacked_content = temp_file.read
       unpacked_filename = File.basename(temp_file.path)
 
-      File.open("/some/path/#{unpacked_filename}", 'w') do |new_file| 
+      File.open("/some/path/#{unpacked_filename}", 'w') do |new_file|
         new_file.write(unpacked_content)
       end
     end
@@ -79,7 +79,7 @@ The gem defines the class TNEF with a class method to convert a given winmail.da
 "Tinnef" is a german slang word for "rubbish" or "trash". TNEF => TiNnEF => Tinnef - you know?
 
 ## Note on Patches/Pull Requests
- 
+
 * Fork the project.
 * Make your feature addition or bug fix.
 * Add tests for it. This is important so I don't break it in a
