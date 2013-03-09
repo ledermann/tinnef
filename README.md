@@ -94,4 +94,4 @@ The gem defines the class TNEF with a class method to convert a given winmail.da
 This code is based on the work by Peter Collingbourne, published as part of the [alaveteli](https://github.com/sebbacon/alaveteli/blob/master/lib/tnef.rb) project.
 Thank you for sharing!
 
-Copyright (c) 2010-2011 Georg Ledermann. See MIT-LICENSE for details.
+Copyright (c) 2010-2013 Georg Ledermann. See MIT-LICENSE for details.
