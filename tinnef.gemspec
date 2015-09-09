@@ -5,11 +5,13 @@ require "tinnef/version"
 Gem::Specification.new do |s|
   s.name        = 'tinnef'
   s.version     = Tinnef::VERSION
+  s.licenses    = ['MIT']
   s.authors     = ["Georg Ledermann"]
   s.email       = ["mail@georg-ledermann.de"]
-  s.homepage    = ""
+  s.homepage    = "https://github.com/ledermann/tinnef"
   s.summary     = %q{Ruby wrapper for tnef, a tool for unpacking 'winmail.dat' files}
   s.description = %q{Handling e-mail attachments with MIME type 'application/ms-tnef'}
+  s.required_ruby_version = '>= 1.8.7'
 
   s.rubyforge_project = "."
 
