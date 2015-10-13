@@ -1,24 +1,5 @@
 require 'test_helper'
 
-class TestDir < Test::Unit::TestCase
-  def test_mktmpdir_path
-    dir = Dir.mktmpdir
-
-    assert File.directory?(dir)
-    assert_equal true, File.directory?(dir)
-  end
-
-  def test_mktmpdir_block
-    directory = ''
-    Dir.mktmpdir do |dir|
-      directory = dir
-    end
-
-    assert !File.directory?(directory)
-    assert_equal false, File.directory?(directory)
-  end
-end
-
 class TestTinnef < Test::Unit::TestCase
   def setup
     @content = File.new(File.dirname(__FILE__) + '/fixtures/quick-winmail.dat').read
