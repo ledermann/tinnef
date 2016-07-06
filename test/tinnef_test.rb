@@ -17,7 +17,7 @@ class TestTinnef < Test::Unit::TestCase
   def test_content
     TNEF.convert(@content) do |temp_file|
       if File.basename(temp_file.path) == 'quick.txt'
-        assert_match /The quick brown fox jumps over the lazy dog/, temp_file.read
+        assert_match(/The quick brown fox jumps over the lazy dog/, temp_file.read)
       end
     end
   end
