@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.homepage    = "https://github.com/ledermann/tinnef"
   s.summary     = %q{Ruby wrapper for tnef, a tool for unpacking 'winmail.dat' files}
   s.description = %q{Handling e-mail attachments with MIME type 'application/ms-tnef'}
-  s.required_ruby_version = '>= 1.8.7'
+  s.required_ruby_version = '>= 1.9.3'
 
   s.rubyforge_project = "."
 
