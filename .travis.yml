@@ -1,7 +1,10 @@
+sudo: false
 rvm:
   - 1.8.7
   - 1.9.3
   - 2.1.7
   - 2.2.3
-before_script:
-  - "sudo apt-get install tnef -y"
+addons:
+  apt:
+    packages:
+    - tnef
