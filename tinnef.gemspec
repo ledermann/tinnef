@@ -13,8 +13,6 @@ Gem::Specification.new do |s|
   s.description = %q{Handling e-mail attachments with MIME type 'application/ms-tnef'}
   s.required_ruby_version = '>= 1.9.3'
 
-  s.rubyforge_project = "."
-
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
