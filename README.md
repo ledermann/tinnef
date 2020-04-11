@@ -61,19 +61,20 @@ What? I don't think this gem will work on Windows.
 
 The gem defines the class TNEF with a class method to convert a given winmail.dat file. Use it with a block like in the following example:
 
-    require 'rubygems'
-    require 'tinnef'
+```ruby
+require 'rubygems'
+require 'tinnef'
 
-    content = File.new('winmail.dat').read
-    TNEF.convert(content, :command => '/opt/local/bin/tnef') do |temp_file|
-      unpacked_content = temp_file.read
-      unpacked_filename = File.basename(temp_file.path)
+content = File.new('winmail.dat').read
+TNEF.convert(content, :command => '/opt/local/bin/tnef') do |temp_file|
+  unpacked_content = temp_file.read
+  unpacked_filename = File.basename(temp_file.path)
 
-      File.open("/some/path/#{unpacked_filename}", 'w') do |new_file|
-        new_file.write(unpacked_content)
-      end
-    end
-
+  File.open("/some/path/#{unpacked_filename}", 'w') do |new_file|
+    new_file.write(unpacked_content)
+  end
+end
+```
 
 ## About the naming of this gem
 
